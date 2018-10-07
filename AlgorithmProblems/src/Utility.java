@@ -1,7 +1,20 @@
+/******************************************************************************
+	 * Purpose:  helper class containinf important methods used in other classes
+     *
+	 * @author chiragkatare
+	 * @version 2.0   
+	 * @since 03-10-2018
+	 *
+	 ******************************************************************************/
 import java.util.ArrayList;
 
 public class Utility {
 
+	/**
+	 * Function to count the characters in a string alphabaticlally and return array of the count of each alphabet
+	 * @param s  the string given to count
+	 * @return the array for counted characters
+	 */
 	public static int[] count(String s) {
 		s = s.toLowerCase();
 		int[] c = new int[25];
@@ -11,6 +24,11 @@ public class Utility {
 		return c;
 	}
 
+	/**
+	 * Function to count the value in given integer be place
+	 * @param n the integer value to count
+	 * @return the integer array for the count value
+	 */
 	public static int[] count(int n) {
 		int[] count = new int[10];
 		int temp = n;
@@ -22,6 +40,12 @@ public class Utility {
 		return count;
 	}
 
+	/**
+	 * Function to check the two strings are anagrams or not
+	 * @param s1 the first string to check
+	 * @param s2 the second string to check
+	 * @return true if its string and vice-versa
+	 */
 	public static boolean anagram(String s1, String s2) {
 		if (s1.length() != s2.length()) {
 			return false;
@@ -36,6 +60,12 @@ public class Utility {
 		return true;
 	}
 
+	/**
+	 * to check the values are anagrams or not
+	 * @param n1
+	 * @param n2
+	 * @return
+	 */
 	public static boolean anagram(int n1, int n2) {
 		int[] n1count = count(n1);
 		int[] n2count = count(n2);
@@ -47,6 +77,9 @@ public class Utility {
 		return true;
 	}
 
+	/**
+	 * Function to print the prime no between to 1 to 1000
+	 */
 	public static void prime() {
 		System.out.println();
 		boolean b;
@@ -63,6 +96,9 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * Function helping prime() to check if prime is pallindrome and print it
+	 */
 	public static void primePallindrome() {
 		System.out.println();
 		boolean b;
@@ -79,6 +115,9 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * Function to check if no is anagram or not
+	 */
 	public static void primeAnagrams() {
 		ArrayList<Integer> ar = new ArrayList<Integer>();
 		System.out.println();
@@ -103,6 +142,11 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * Function to sort implementing bubble sort algorithm
+	 * @param arr
+	 * @return
+	 */
 	public static int[] bubbleSort(int[] arr) {
 		int temp;
 		for (int i = 0; i < arr.length - 1; i++) {

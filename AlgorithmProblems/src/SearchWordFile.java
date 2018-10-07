@@ -1,3 +1,14 @@
+/******************************************************************************
+ * Compilation: javac -d bin MonthlyPayment.java Execution: java -cp bin
+ * com.bridgelabz.util.MonthlyPayment n
+ * 
+ * Purpose: to read the file and check if the word is in the file or not
+ *
+ * @author chiragkatare
+ * @version 1.0
+ * @since 04/10/2018
+ *
+ ******************************************************************************/
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,6 +16,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SearchWordFile {
+	 /**
+	  *   Function to read the file and return
+	  * @param f the file which to read
+	  * @return  the string which to read 
+	  * @throws IOException
+	  */
 	public static String[] fileRead(File f) throws IOException {
 		String word = "";
 		ArrayList<String> s1 = new ArrayList<String>();
@@ -23,7 +40,10 @@ public class SearchWordFile {
 		s1.toArray(s);
 		return s;
 	}
-
+    /**
+     *     Main function to test the class
+     * @param args
+     */
 	public static void main(String[] args) {
 		File f = new File("/home/bridgelabz/chiragCodes/akku.txt");
 		try {

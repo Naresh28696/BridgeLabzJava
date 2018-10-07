@@ -1,15 +1,27 @@
+
+/******************************************************************************
+	 * Purpose:  Guess the number given by user and check by asking user,, imlementing binary search 
+     *
+	 * @author chiragkatare
+	 * @version 2.0   
+	 * @since 04-10-2018
+	 *
+	 ******************************************************************************/
+
 import java.util.Scanner;
 
 public class GuessGame {
 
-	static int find(Scanner s) {
+	static Scanner S = new Scanner(System.in);
+
+	static int find() {
 
 		int low = 0, high = 127, mid;
 		while (low != high) {
 			mid = (low + high) / 2;
 			System.out.println("enter 1 if no is between " + low + " - " + mid + "\nEnter 2 if no is between "
 					+ (mid + 1) + " - " + high);
-			int c = s.nextInt();
+			int c = S.nextInt();
 			mid = (low + high) / 2;
 			if (c == 1)
 				high = mid;
@@ -20,9 +32,13 @@ public class GuessGame {
 	}
 
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
+
 		System.out.println("guess a no between 0 to 127 ");
-		s.next();
-		System.out.println("guessed no is " + find(s));
+		S.next();
+		try {
+			System.out.println("guessed no is " + find());
+		} catch (Exception e) {
+			System.out.println("enter correct input");
+		}
 	}
 }
