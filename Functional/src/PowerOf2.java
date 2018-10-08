@@ -1,8 +1,8 @@
 
 /******************************************************************************
  * Purpose: his program takes a command-line argument N and prints a table of 
- * the powers of 2 that are less than or equal to 2^N.
- *
+ the powers of 2 that are less than or equal to 2^N.
+ 
  * @author chiragkatare
  * @version 1.0
  * @since 08-10-2018
