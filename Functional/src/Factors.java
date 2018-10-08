@@ -1,7 +1,23 @@
+
+/******************************************************************************
+	 * Purpose:  Program to find the prime factors of given no
+     *
+	 * @author chiragkatare
+	 * @version 1.0   
+	 * @since 05-10-2018
+	 *
+	 ******************************************************************************/
+
 import java.util.Scanner;
 
 public class Factors {
 
+	/**
+	 * Finction to check if the no is prime or not
+	 * 
+	 * @param n the number to check for prime
+	 * @return true if prime and vice-versa
+	 */
 	public static boolean isPrime(int n) {
 		for (int i = 2; i <= n / 2; i++) {
 			if (n % i == 0) {
@@ -11,6 +27,11 @@ public class Factors {
 		return true;
 	}
 
+	/**
+	 * Function to find the prime factors of given no and print it
+	 * 
+	 * @param n the no for which to find the prime factors
+	 */
 	static void primeFactors(int n) {
 		for (int i = 2; i <= n; i++) {
 			int t = n % i;

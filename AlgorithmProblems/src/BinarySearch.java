@@ -14,6 +14,12 @@
 import java.util.Scanner;
 
 public class BinarySearch {
+	 /**
+	  * Main method to test the class
+	  * 
+	  * @param args
+	  * @throws Exception if input is not integer
+	  */
 	public static void main(String[] args) throws Exception {
 		Scanner s = new Scanner(System.in);
 		try {

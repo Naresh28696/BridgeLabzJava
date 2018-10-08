@@ -1,8 +1,25 @@
+/******************************************************************************
+ * Purpose: Program to find the coupen code which are unique
+ *
+ * @author chiragkatare
+ * @version 2.0
+ * @since 08-10-2018
+ *
+ ******************************************************************************/
 
 public class CoupenCode {
 	public static void main(String[] args) {
+		/*
+		 * char array to get characters for coupen
+		 */
 		char[] chars = "abcdefghijklmnop".toCharArray();
-		int max = 50;
+		/*
+		 * length of coupen
+		 */
+		int max = 100000000;
+		/*
+		 * random value
+		 */
 		double d = Math.random();
 		int random = (int) (d * max);
 		String sb = "";
@@ -11,8 +28,7 @@ public class CoupenCode {
 		while (random > 0) {
 			sb = sb + (chars[random % chars.length]);
 			random /= chars.length;
-			System.out.println(random + "  " + random % chars.length + " sb is " + sb
-					);
+			System.out.println(random + "  " + random % chars.length + " sb is " + sb);
 		}
 
 		String couponCode = sb.toString();

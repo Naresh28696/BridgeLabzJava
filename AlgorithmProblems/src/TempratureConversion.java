@@ -1,19 +1,32 @@
+
+/******************************************************************************
+	 * Purpose:  To Convert the temperature from celcius to fahreinheit and vice-versa
+     *
+	 * @author chiragkatare
+	 * @version 2.0   
+	 * @since 04-10-2018
+	 *
+	 ******************************************************************************/
 import java.util.Scanner;
 
 public class TempratureConversion {
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		System.out.println("enter temp in c or f");
-		int tem = s.nextInt();
-		char t = s.next().charAt(0);
-		if (t != 'f' && t != 'F' && t != 'c' && t != 'C') {
-			System.out.println("enter correct input");
-			main(args);
+		try {
+			Scanner s = new Scanner(System.in);
+			System.out.println("enter temp in c or f");
+			int tem = s.nextInt();
+			char t = s.next().charAt(0);
 			s.close();
-			return;
+			if (t != 'f' && t != 'F' && t != 'c' && t != 'C') {
+				System.out.println("enter correct input");
+				main(args);
+				return;
+			}
+			tem = Util.temperaturConversion(tem, t);
+			System.out.println("coverted temp is " + tem);
+		} catch (Exception e) {
+			System.out.println("temperature in format 4545 c");
 		}
-		tem = Util.temperaturConversion(tem, t);
-		System.out.println("coverted temp is " + tem);
 
 	}
 }

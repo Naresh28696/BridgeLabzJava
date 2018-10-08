@@ -1,3 +1,4 @@
+
 /******************************************************************************
 	 * Purpose:  helper class containinf important methods used in other classes
      *
@@ -11,8 +12,10 @@ import java.util.ArrayList;
 public class Utility {
 
 	/**
-	 * Function to count the characters in a string alphabaticlally and return array of the count of each alphabet
-	 * @param s  the string given to count
+	 * Function to count the characters in a string alphabaticlally and return array
+	 * of the count of each alphabet
+	 * 
+	 * @param s the string given to count
 	 * @return the array for counted characters
 	 */
 	public static int[] count(String s) {
@@ -26,6 +29,7 @@ public class Utility {
 
 	/**
 	 * Function to count the value in given integer be place
+	 * 
 	 * @param n the integer value to count
 	 * @return the integer array for the count value
 	 */
@@ -42,6 +46,7 @@ public class Utility {
 
 	/**
 	 * Function to check the two strings are anagrams or not
+	 * 
 	 * @param s1 the first string to check
 	 * @param s2 the second string to check
 	 * @return true if its string and vice-versa
@@ -62,6 +67,7 @@ public class Utility {
 
 	/**
 	 * to check the values are anagrams or not
+	 * 
 	 * @param n1
 	 * @param n2
 	 * @return
@@ -144,6 +150,7 @@ public class Utility {
 
 	/**
 	 * Function to sort implementing bubble sort algorithm
+	 * 
 	 * @param arr
 	 * @return
 	 */
@@ -163,7 +170,12 @@ public class Utility {
 		return arr;
 	}
 
-	public static String[] bubbleSort(String[] arr) {
+	/**
+	 * Function to sort string array using bubble sort algorithm
+	 * 
+	 * @param arr the array which needs to be sorted
+	 */
+	public static void bubbleSort(String[] arr) {
 		String temp;
 		for (int i = 0; i < arr.length - 1; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
@@ -174,11 +186,16 @@ public class Utility {
 
 				}
 			}
-
 		}
-		return arr;
 	}
 
+	/**
+	 * Function to search a number in a array using binary search algorithm
+	 * 
+	 * @param arr the array in which the no to be searched
+	 * @param n   the integer which needs to be searched
+	 * @return the index of the number if found or -1 if not found
+	 */
 	public static int binary(int[] arr, int n) {
 		int high = arr.length - 1, low = 0, mid;
 		arr = bubbleSort(arr);
@@ -195,9 +212,17 @@ public class Utility {
 		}
 		return -1;
 	}
+
+	/**
+	 * Function to search a string in string array using binary search
+	 * 
+	 * @param arr the array in which element to be searched
+	 * @param s   the string element which needs to be searched
+	 * @return -1 if not found or the index of element if found
+	 */
 	public static int binary(String[] arr, String s) {
 		int high = arr.length - 1, low = 0, mid;
-		arr = bubbleSort(arr);
+		bubbleSort(arr);
 
 		while (low <= high) {
 			mid = (low + high) / 2;
@@ -212,24 +237,23 @@ public class Utility {
 		return -1;
 	}
 
-	public static int i(String[] arr, String s) {
-		int high = arr.length - 1, low = 0, mid;
-		arr = bubbleSort(arr);
+	/*
+	 * public static int i(String[] arr, String s) { int high = arr.length - 1, low
+	 * = 0, mid; bubbleSort(arr);
+	 * 
+	 * while (low <= high) { mid = (low + high) / 2; if
+	 * (s.equalsIgnoreCase(arr[mid])) { return mid; } else if
+	 * (arr[mid].compareToIgnoreCase(s) < 0) { low = mid + 1; } else { high = mid -
+	 * 1; } } return -1; }
+	 */
 
-		while (low <= high) {
-			mid = (low + high) / 2;
-			if (s.equalsIgnoreCase(arr[mid])) {
-				return mid;
-			} else if (arr[mid].compareToIgnoreCase(s) < 0) {
-				low = mid + 1;
-			} else {
-				high = mid - 1;
-			}
-		}
-		return -1;
-	}
-
-	public static int[] insertionSort(int[] arr) {
+	/**
+	 * Function to sort array using insertion sort
+	 * 
+	 * @param arr the array which needs to be sorted
+	 * 
+	 */
+	public static void insertionSort(int[] arr) {
 		for (int i = 1; i < arr.length; i++) {
 			int temp = arr[i];
 			int j = i - 1;
@@ -239,9 +263,14 @@ public class Utility {
 			}
 			arr[j + 1] = temp;
 		}
-		return arr;
 	}
 
+	/**
+	 * Function to sort array using insertion sort
+	 * 
+	 * @param arr the array which needs to be sorted
+	 * 
+	 */
 	public static String[] insertionSort(String[] arr) {
 		for (int i = 1; i < arr.length; i++) {
 			String temp = arr[i];
@@ -255,6 +284,12 @@ public class Utility {
 		return arr;
 	}
 
+	/**
+	 * Function to find the is pallindrome or not
+	 * 
+	 * @param n the integer which to check for pallindrome
+	 * @return true if its pallindrome or false if its not
+	 */
 	public static boolean isPallindrome(int n) {
 		int temp = n;
 		int sum = 0;
