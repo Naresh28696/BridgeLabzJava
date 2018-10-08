@@ -19,7 +19,8 @@ public class Quadratic {
 	 * @param c value of c
 	 */
 	static void roots(int a, int b, int c) {
-		int delta = b * b - 4 * a * c;
+		// calculating delta value
+		int delta = Math.abs(b * b - 4 * a * c);
 		double x1 = (-b + Math.pow(delta, 1 / 2)) / (2 * a);
 		double x2 = (-b - Math.pow(delta, 1 / 2)) / (2 * a);
 		System.out.println(x1);
@@ -27,14 +28,24 @@ public class Quadratic {
 
 	}
 
+	/**
+	 * Main method to test the class
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		System.out.println("enter a ");
-		int a = s.nextInt();
-		System.out.println("enter b");
-		int b = s.nextInt();
-		System.out.println("enter c");
-		int c = s.nextInt();
-		roots(a, b, c);
+		try {
+			System.out.println("enter a ");
+			int a = s.nextInt();
+			System.out.println("enter b");
+			int b = s.nextInt();
+			System.out.println("enter c");
+			int c = s.nextInt();
+			roots(a, b, c);
+		} catch (Exception e) {
+			System.out.println("enter correct input");
+		}
+		s.close();
 	}
 }
