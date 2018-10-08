@@ -2,6 +2,11 @@
 public class UnorderedList<T> {
 	Node head;
 
+	/**
+	 * function to add a new item in the list and returns nothing
+	 * 
+	 * @param data the item which to be added
+	 */
 	public void add(T data) {
 		Node n = new Node(data);
 		if (head == null) {
@@ -15,6 +20,11 @@ public class UnorderedList<T> {
 		}
 	}
 
+	/**
+	 * Function to remove the item from the list
+	 * 
+	 * @param item
+	 */
 	public void remove(T item) {
 		Node n = head;
 		Node prev = null;
@@ -25,6 +35,12 @@ public class UnorderedList<T> {
 		prev.next = n.next;
 	}
 
+	/**
+	 * function to search the item in the list
+	 * 
+	 * @param item the item to be searched
+	 * @return true if found and false if not found
+	 */
 	public boolean search(T item) {
 		Node n = head;
 		while (n.next != null) {
