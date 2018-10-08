@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class HarmonicNo {
 	/**
 	 * Function to calculate the nth harmonic no
+	 * 
 	 * @param n the value of harmonic no
 	 * @return
 	 */
@@ -23,12 +24,25 @@ public class HarmonicNo {
 		return h;
 	}
 
+	/**
+	 * main method to test the class
+	 * 
+	 * @param ars
+	 */
 	public static void main(String[] ars) {
 		Scanner s = new Scanner(System.in);
-		System.out.println("enter harmonic no to find");
-		int n = s.nextInt();
-		System.out.println(harmonic(n));
+		/*
+		 * try and catch to not terminate at wrong input
+		 */
+		try {
+			System.out.println("enter harmonic no to find");
+			int n = s.nextInt();
+			System.out.println(harmonic(n));
 
+		} catch (Exception e) {
+			System.out.println("enter integer");
+			main(ars);
+		}
 		s.close();
 	}
 }

@@ -1,13 +1,14 @@
 /******************************************************************************
-	 * Purpose:  helper class containinf important methods used in other classes
-     *
-	 * @author chiragkatare
-	 * @version 2.0   
-	 * @since 04-10-2018
-	 *
-	 ******************************************************************************/
+ * Purpose: helper class containing important methods used in other classes
+ *
+ * @author chiragkatare
+ * @version 2.0
+ * @since 04-10-2018
+ *
+ ******************************************************************************/
 
 public class Util {
+
 	/**
 	 * Function to check the day of the week of given date
 	 *
