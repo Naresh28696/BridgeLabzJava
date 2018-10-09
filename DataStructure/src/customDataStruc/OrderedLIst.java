@@ -1,14 +1,6 @@
 package customDataStruc;
 
-/******************************************************************************
- * Purpose: Implementation of unordered list with its common operation
- *
- * @author chiragkatare
- * @version 1.0
- * @since 09-10-2018
- *
- ******************************************************************************/
-public class UnorderedList<T> {
+public class OrderedLIst<T> {
 	Node head;
 	int size = 0;
 
@@ -20,19 +12,27 @@ public class UnorderedList<T> {
 	public void add(T data) {
 		/*
 		 * creates an new node with data traverse list till last adds the node as the
-		 * last node
+		 * last node and save head node as n
 		 */
 		Node n = new Node(data);
+		Node node = head;
+		Node prev = null;
 		if (head == null) {
 			head = n;
 			size++;
+		} else if (n.data.hashCode() < head.data.hashCode()) {
+			head = n;
+			n.next = node;
+			size++;
 		} else {
-			Node node = head;
-			while (node.next != null) {
+			while (node.data.hashCode() < n.data.hashCode()) {
+				System.out.println(node.data);
+				prev = node;
 				node = node.next;
 			}
 			// adds the node as last node
-			node.next = n;
+			n.next = node;
+			prev.next = n;
 			size++;
 		}
 	}
@@ -116,28 +116,6 @@ public class UnorderedList<T> {
 	}
 
 	/**
-	 * Function to insert the item at given index
-	 * 
-	 * @param pos  the index at which to insert
-	 * @param item the item which to insert
-	 * @throws IndexOutOfBoundsException if index is greater than size of list or is
-	 *                                   less than 0
-	 */
-	public void insert(int pos, T item) throws IndexOutOfBoundsException {
-		if (pos >= size || pos < 0) {
-			throw new IndexOutOfBoundsException();
-		}
-		int index = 0;
-		Node n = head;
-		Node node = new Node(item);
-		while (index != pos) {
-			n = n.next;
-		}
-		node.next = n.next;
-		n.next = node;
-	}
-
-	/**
 	 * function to remove the item from the last of list and return it
 	 * 
 	 * @return the last element of list after removing
@@ -202,15 +180,4 @@ public class UnorderedList<T> {
 		System.out.println(toString());
 	}
 
-}
-
-class Node {
-
-	public Node(Object data) {
-		super();
-		this.data = data;
-	}
-
-	Object data;
-	Node next;
 }

@@ -5,6 +5,9 @@ public class Test {
 		UnorderedList<Integer> il = new UnorderedList<>();
 		il.add(12);
 		il.add(33);
+		Integer i = 0 ;
+		Integer s = 5 ;
+		if() {}
 		// Integer s = il.pop(1);
 		System.out.println(il);
 	}
