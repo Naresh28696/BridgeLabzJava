@@ -1,3 +1,11 @@
+/******************************************************************************
+ * Purpose: Implementation of ordered(sorted) list with its common operation
+ *
+ * @author chiragkatare
+ * @version 1.0
+ * @since 09-10-2018
+ *
+ ******************************************************************************/
 package customDataStruc;
 
 public class OrderedLIst<T> {
