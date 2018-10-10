@@ -68,6 +68,8 @@ public class FileReadUnordered {
 					n++;
 				}
 				System.out.println("added and saved");
+				fw.close();
+				s.close();
 			}
 
 		} catch (FileNotFoundException e) {

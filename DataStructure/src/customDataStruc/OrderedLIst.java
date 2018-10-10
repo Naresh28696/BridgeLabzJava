@@ -18,30 +18,32 @@ public class OrderedLIst<T> {
 	 * @param data the item which to be added
 	 */
 	public void add(T data) {
-		/*
-		 * creates an new node with data traverse list till last adds the node as the
-		 * last node and save head node as n
-		 */
-		Node n = new Node(data);
-		Node node = head;
-		Node prev = null;
+
+		Node node = new Node(data);
+		Node n = head;
 		if (head == null) {
-			head = n;
+			head = node;
 			size++;
-		} else if (n.data.hashCode() < head.data.hashCode()) {
-			head = n;
-			n.next = node;
+			return;
+		} else if (node.data.hashCode() < head.data.hashCode()) {
+			node.next = head;
+			head = node;
 			size++;
 		} else {
-			while (node.data.hashCode() < n.data.hashCode()) {
-				System.out.println(node.data);
-				prev = node;
-				node = node.next;
+			int j = 0;
+			while (node.data.hashCode() < n.next.data.hashCode() && j < size) {
+				n = n.next;
+				j++;
 			}
-			// adds the node as last node
-			n.next = node;
-			prev.next = n;
-			size++;
+			if (n.next == null) {
+				n.next = node;
+				size++;
+			} else {
+				Node prev = n;
+				prev.next = node;
+				node.next = n.next;
+				size++;
+			}
 		}
 	}
 

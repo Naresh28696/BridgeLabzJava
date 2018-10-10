@@ -9,8 +9,9 @@ package customDataStruc;
  *
  ******************************************************************************/
 public class UnorderedList<T> {
-	Node head;
-	int size = 0;
+	private Node head;
+	Node tail;
+	private int size = 0;
 
 	/**
 	 * function to add a new item in the list and returns nothing
@@ -58,6 +59,19 @@ public class UnorderedList<T> {
 		prev.next = n;
 		n = null;
 		size -= 1;
+	}
+
+	public void removeAtLast() {
+		Node n = head;
+		Node prev = null;
+		while (n.next != null) {
+			prev = n;
+			n = n.next;
+		}
+		System.out.println("hheeyy");
+		// remove the node as last node
+		prev.next = null;
+		size--;
 	}
 
 	/**
@@ -124,17 +138,23 @@ public class UnorderedList<T> {
 	 *                                   less than 0
 	 */
 	public void insert(int pos, T item) throws IndexOutOfBoundsException {
-		if (pos >= size || pos < 0) {
+		if (pos > size || pos < 0) {
 			throw new IndexOutOfBoundsException();
 		}
 		int index = 0;
 		Node n = head;
 		Node node = new Node(item);
-		while (index != pos) {
-			n = n.next;
+		if (pos == 0) {
+			node.next = head;
+			head = node;
+		} else {
+			while (index != pos) {
+				n = n.next;
+			}
+			node.next = n.next;
+			n.next = node;
 		}
-		node.next = n.next;
-		n.next = node;
+		size++;
 	}
 
 	/**
@@ -144,14 +164,18 @@ public class UnorderedList<T> {
 	 */
 	public T pop() {
 		Node n = head;
-		Node prev = null;
+		if (size == 1) {
+			head = head.next;
+			size--;
+			return (T) n.data;
+		}
 		while (n.next != null) {
-			prev = n;
 			n = n.next;
 		}
-		prev.next = null;
+		T ret = (T) n.data;
+		n = n.next;
 		size -= 1;
-		return (T) n.data;
+		return ret;
 	}
 
 	/**
@@ -165,6 +189,7 @@ public class UnorderedList<T> {
 		Node n = head;
 		if (pos == 0) {
 			head = head.next;
+			size--;
 			return (T) n.data;
 		}
 		Node prev = null;
@@ -212,5 +237,5 @@ class Node {
 	}
 
 	Object data;
-	Node next;
+	Node next = null;
 }

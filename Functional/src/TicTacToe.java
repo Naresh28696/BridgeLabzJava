@@ -22,6 +22,8 @@ public class TicTacToe {
 				BOARD[i][j] = -10;
 			}
 		}
+		System.out.println("Board is this :");
+		dispBoard();
 	}
 
 	static void dispBoard() {
@@ -96,7 +98,7 @@ public class TicTacToe {
 				System.out.println("Player won");
 				return;
 			}
-			player++;
+			player = 1;
 			System.out.println("Computers turn");
 			putVal();
 			dispBoard();
@@ -104,7 +106,7 @@ public class TicTacToe {
 				System.out.println("Computer won");
 				return;
 			}
-			player++;
+			player = 0;
 		}
 	}
 
