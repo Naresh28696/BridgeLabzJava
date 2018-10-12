@@ -38,6 +38,7 @@ public class BalancedParenthesis {
 	public static void main(String[] args) {
 
 		String s = "(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)";
-		System.out.println(check(s));
+		String result = (check(s)) ? "Balanced" : "Not Balanced";
+		System.out.println(result);
 	}
 }

@@ -103,6 +103,21 @@ public class Utility {
 	}
 
 	/**
+	 * function to chekc if given no is prime or not
+	 * 
+	 * @param n thenumber which to check for prime
+	 * @return true if prime false if not
+	 */
+	public static boolean isPrime(int n) {
+		for (int i = 2; i < n / 2; i++) {
+			if (i % n == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Function helping prime() to check if prime is pallindrome and print it
 	 */
 	public static void primePallindrome() {

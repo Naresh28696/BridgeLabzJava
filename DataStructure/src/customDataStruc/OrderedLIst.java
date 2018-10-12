@@ -8,8 +8,9 @@
  ******************************************************************************/
 package customDataStruc;
 
-public class OrderedLIst<T> {
+public class OrderedLIst<T extends Comparable<T>> {
 	Node head;
+	Node tail;
 	int size = 0;
 
 	/**
@@ -17,33 +18,34 @@ public class OrderedLIst<T> {
 	 * 
 	 * @param data the item which to be added
 	 */
+	@SuppressWarnings("unchecked")
 	public void add(T data) {
 
-		Node node = new Node(data);
 		Node n = head;
+		Node temp = new Node(data);
+		size++;
 		if (head == null) {
-			head = node;
-			size++;
-			return;
-		} else if (node.data.hashCode() < head.data.hashCode()) {
-			node.next = head;
-			head = node;
-			size++;
+			// System.out.println("1st");
+			head = temp;
+			head.next = tail;
+			tail = head;
+		} else if (data.compareTo((T) head.data) < 0) {
+			// System.out.println("2nd");
+			temp.next = head;
+			head = temp;
 		} else {
-			int j = 0;
-			while (node.data.hashCode() < n.next.data.hashCode() && j < size) {
+			if (data.compareTo((T) tail.data) > 0) {
+				tail.next = temp;
+				tail = temp;
+				return;
+			}
+			Node prev = null;
+			while (data.compareTo((T) n.data) > 0 && n.next != null) {
+				prev = n;
 				n = n.next;
-				j++;
 			}
-			if (n.next == null) {
-				n.next = node;
-				size++;
-			} else {
-				Node prev = n;
-				prev.next = node;
-				node.next = n.next;
-				size++;
-			}
+			prev.next = temp;
+			temp.next = n;
 		}
 	}
 
@@ -59,15 +61,23 @@ public class OrderedLIst<T> {
 			head = head.next;
 			size -= 1;
 			return;
-		}
-		while (!n.data.equals(item)) {
-			prev = n;
+		} else if (tail.data.equals(item)) {
+			while (!n.next.data.equals(tail.data)) {
+				n = n.next;
+			}
+			n.next = null;
+			tail = n;
+			return;
+		} else {
+			while (!n.data.equals(item)) {
+				prev = n;
+				n = n.next;
+			}
 			n = n.next;
+			prev.next = n;
+			n = null;
+			size -= 1;
 		}
-		n = n.next;
-		prev.next = n;
-		n = null;
-		size -= 1;
 	}
 
 	/**
@@ -78,7 +88,7 @@ public class OrderedLIst<T> {
 	 */
 	public boolean search(T item) {
 		Node n = head;
-		while (n.next != null) {
+		while (n != null) {
 			if (n.data.equals(item)) {
 				return true;
 			}
@@ -138,6 +148,7 @@ public class OrderedLIst<T> {
 			n = n.next;
 		}
 		prev.next = null;
+		tail = prev;
 		size -= 1;
 		return (T) n.data;
 	}
@@ -150,20 +161,23 @@ public class OrderedLIst<T> {
 	 */
 	public T pop(int pos) {
 		int index = 0;
+		Node prev = null;
 		Node n = head;
 		if (pos == 0) {
 			head = head.next;
 			return (T) n.data;
+		} else if (pos == size - 1) {
+			return pop();
+		} else {
+			while (index != pos) {
+				prev = n;
+				n = n.next;
+				index++;
+			}
+			prev.next = n.next;
+			size -= 1;
+			return (T) n.data;
 		}
-		Node prev = null;
-		while (index != pos) {
-			prev = n;
-			n = n.next;
-			index++;
-		}
-		prev.next = n.next;
-		size -= 1;
-		return (T) n.data;
 	}
 
 	/**
@@ -171,6 +185,7 @@ public class OrderedLIst<T> {
 	 */
 	@Override
 	public String toString() {
+
 		StringBuffer s = new StringBuffer();
 		s.append("[ ");
 		Node node = head;
@@ -181,6 +196,7 @@ public class OrderedLIst<T> {
 		}
 		s.append(" ]");
 		return s.toString();
+
 	}
 
 	/**

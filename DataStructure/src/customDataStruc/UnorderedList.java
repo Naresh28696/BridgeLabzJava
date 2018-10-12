@@ -13,6 +13,8 @@ public class UnorderedList<T> {
 	Node tail;
 	private int size = 0;
 
+	@SuppressWarnings("Unchecked")
+
 	/**
 	 * function to add a new item in the list and returns nothing
 	 * 
@@ -227,15 +229,4 @@ public class UnorderedList<T> {
 		System.out.println(toString());
 	}
 
-}
-
-class Node {
-
-	public Node(Object data) {
-		super();
-		this.data = data;
-	}
-
-	Object data;
-	Node next = null;
 }

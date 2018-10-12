@@ -7,7 +7,6 @@ public class DequePallindrome {
 	static boolean ispallindrom(Dequeue<Character> dq) {
 		if (dq.size() % 2 == 0) {
 			while (dq.size() != 0) {
-				System.out.println(!dq.isEmpty());
 				char c = dq.removeFront();
 				char c2 = dq.removeRear();
 				if (c != c2) {

@@ -37,10 +37,14 @@ public class Permutation {
 	}
 
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		System.out.println("enter a string");
-		String s1 = s.nextLine();
-		permutIteration(s1);
+		try (Scanner s = new Scanner(System.in);) {
+			System.out.println("enter a string");
+			String s1 = s.nextLine();
+			permutIteration(s1);
+
+		} catch (Exception e) {
+			System.out.println("enter correct input");
+		}
 
 	}
 }
